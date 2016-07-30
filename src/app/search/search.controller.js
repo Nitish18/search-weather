@@ -38,7 +38,7 @@
       store.setObject('history', vm.searchHistory);
     }
 
-    var searchUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=';
+    var searchUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=';
     var appKey = 'APPID=b278086efc1694e3702491f0352fc402';
 
     function citySelected(city){
