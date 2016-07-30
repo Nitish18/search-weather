@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="jumbotron text-center">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-xs-offset-0">
+        <h3> Search Weather of your City </h3>
+        <input type="text" name="" placeholder="type city name" ng-model="vm.query">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item" ng-if="vm.query" ng-repeat="city in vm.cities | filter:vm.query | limitTo:5" ng-click="vm.citySelected(city)">
+              {{city.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <div class="container">
+      <div class="col-xs-12 col-sm-8">
+        <div ng-if="vm.wheather" class="panel panel-default">
+          <div class="panel-heading">
+            <h3>{{vm.wheather.city.name}} <small>{{vm.wheather.cnt}}</small> </h3>
+
+          </div>
+          <div class="panel-body">
+
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="item in vm.wheather.list">
+                {{item.dt_txt}}  -  {{item.weather[0].description}}
+              </li>
+            </ul>
+        </div>
+        </div>
+      </div>
+        <div class="col-xs-12 col-sm-4">
+          <h3>History</h3>
+          <ul class="list-group">
+            <li class="list-group-item" ng-if="vm.searchHistory" ng-repeat="city in vm.searchHistory | limitTo:25" ng-click="vm.citySelected(city)">
+              {{city.name}}
+            </li>
+          </ul>
+        </div>
+    </div>
+
+  <div class="row">
+  </div>
+
+
+
+</div>
